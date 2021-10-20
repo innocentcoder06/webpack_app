@@ -1,0 +1,67 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background:linear-gradient(to bottom, #0a1535 0%,#103566 37%,#163a75 61%,#0c528e 100%);
+}
+
+.data-card {
+  color: #222222;
+  background-color: white;
+  padding: 2rem;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.data-card h2 {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+
+.data-card a {
+  color: #0c528e;
+  text-decoration: none;
+}
+
+.data-card a:not(:first-child) {
+  margin-left: 1rem;
+}
+
+.data-card a:hover {
+  color: #222222;
+}
+
+@media only screen and (max-width:425px) {
+  .data-card {
+    width: 100vw;
+    height: max-content;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+  }
+  .data-card div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .data-card a:not(:first-child) {
+    margin: 0;
+    margin-top: 1rem;
+  }
+}

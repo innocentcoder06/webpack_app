@@ -1,0 +1,321 @@
+@import url(https://fonts.googleapis.com/css2?family=Spartan:wght@600;700&display=swap);
+:root {
+  --font: 'Spartan', sans-serif;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: var(--bg_main);
+  font-family: var(--font);
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calc-wrapper {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+.calc-nav {
+  width: inherit;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.calc-nav span {
+  color: var(--color_text);
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+}
+
+.calc-nav .theme-switch {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.calc-nav .theme-switch span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.check-group {
+  display: flex;
+  margin-left: 24px;
+  height: 56px;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.check-group .check-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.check-group .check-item label {
+  color: var(--color_text);
+  font-weight: 600;
+  padding: 8px;
+  height: 56px;
+  box-sizing: border-box;
+  line-height: 14px;
+  font-size: 0.8rem;
+}
+
+.check-group .check-item input {
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  display: none;
+}
+
+.check-group .check-item label {
+  cursor: pointer;
+}
+
+.check-group .toggle-bg {
+  height: 24px;
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 6px;
+  box-sizing: border-box;
+  width: 72px;
+  border-radius: 30px;
+  background-color: var(--bg_keypad);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+
+
+.check-group .toggle-item {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  left: 0px;
+  transition: left 0.30s ease-in-out;
+  border-radius: 30px;
+  background-color: var(--bg_key_2);
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  -webkit-transition: left 0.30s ease-in-out;
+  -moz-transition: left 0.30s ease-in-out;
+  -ms-transition: left 0.30s ease-in-out;
+  -o-transition: left 0.30s ease-in-out;
+}
+
+.calc-display {
+  width: inherit;
+  margin-top: 40px;
+  border-radius: 15px;
+  padding: 40px;
+  color: var(--color_text);
+  font-size: 3.5rem;
+  font-family: var(--font);
+  letter-spacing: 0.2px;
+  text-align: right;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: var(--bg_screen);
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  position: relative;
+}
+
+.calc-display span {
+  position: absolute;
+  bottom: 16px;
+  right: 40px;
+  color: var(--shadow_key_3);
+  font-size: 1rem;
+
+}
+
+.calc-main {
+  width: inherit;
+  margin-top: 24px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  padding: 40px;
+  font-family: var(--font);
+  line-height: 100%;
+  font-size: 32px;
+  letter-spacing: 0.2px;
+  box-sizing: border-box;
+  background-color: var(--bg_keypad);
+}
+
+.grid-container {
+  display: grid; 
+  grid-template-columns: repeat(4, 112px); 
+  grid-template-rows: repeat(5, 64px); 
+  gap: 24px; 
+  grid-template-areas: 
+    "_7 _8 _9 Del"
+    "_4 _5 _6 Add"
+    "_1 _2 _3 Sub"
+    "Dot _0 Div Mul"
+    "Reset Reset Equal Equal"; 
+}
+
+.calc-main div {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  font-size: 32px;
+  box-sizing: border-box;
+  padding: 16px;
+  color: var(--color_num);
+  background-color: var(--bg_key_3);
+  box-shadow: 0px 5px 0px var(--shadow_key_3);
+}
+
+.calc-main div:hover {
+  cursor: pointer;
+}
+
+.calc-main div:last-child {
+  grid-area: Equal;
+  background-color: var(--bg_key_2);
+  color: var(--color_action_2);
+  font-size: 1.25rem;
+  box-shadow: 0px 5px 0px var(--shadow_key_2);
+}
+
+.calc-main div:nth-child(4) {
+  font-size: 1.25rem;
+  background-color: var(--bg_key_1);
+  color: var(--color_action_1);
+  box-shadow: 0px 5px 0px var(--shadow_key_1);
+}
+
+.calc-main div:nth-child(17) {
+  grid-area: Reset;
+  font-size: 1.25rem;
+  background-color: var(--bg_key_1);
+  color: var(--color_action_1);
+  box-shadow: 0px 5px 0px var(--shadow_key_1);
+}
+
+.attribution {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg_key_1);
+  font-size: 0.75rem;
+  padding: 8px;
+  color: var(--color_num);
+}
+
+.attribution a {
+  color: var(--color_action_1);
+}
+
+@media only screen and (max-width: 640px) {
+  .calc-wrapper {
+    width: 95vw;
+    margin-top: 24px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 9.5vw);
+  }
+
+  .calc-main {
+    padding: 5vw 3vw;
+  }
+
+  .calc-main div {
+    padding: 0;
+    font-size: 1rem;
+  }
+
+  .calc-display {
+    padding: 32px;
+    height: 120px;
+    font-size: 2rem;
+  }
+
+  .calc-display span {
+    font-size: 0.8rem;
+  }
+
+  .calc-main div:last-child, .calc-main div:nth-child(17), .calc-main div:nth-child(4) {
+    font-size: 1.1rem;
+  }
+
+  body {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .attribution {
+    font-size: 0.65rem;
+    text-align: center;
+  }
+
+}
+
+@media only screen and (max-width: 375px) {
+  
+  .calc-wrapper {
+    margin-top: 16px;
+  }
+  
+  .calc-main div {
+    font-size: 0.9rem;
+  }
+
+  .calc-main div:last-child, .calc-main div:nth-child(17), .calc-main div:nth-child(4) {
+    font-size: 0.75rem;
+  }
+
+  .attribution {
+    position: relative;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .attribution {
+    font-size: 0.5rem;
+  }
+
+}
