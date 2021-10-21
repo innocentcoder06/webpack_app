@@ -17,7 +17,8 @@ let multiplePlugins = htmlPages.map((page) => {
   } else {
     return new HtmlWebpackPlugin({
       template: `./src/${page}.html`,
-      filename: `${page}.html`
+      filename: `${page}.html`,
+      inject: false
     });
   }
 });
