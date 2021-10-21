@@ -55,19 +55,6 @@ module.exports = {
         }
       },
       {
-        test: /\.(woff|woff2|ttf|otf|eot|svg)$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "/fonts/[name].[ext]",
-              outputPath: "assets",
-              publicPath: "../"
-            }
-          }
-        ]
-      },
-      {
         test: /\.css$/,
         use: [
           {
@@ -87,7 +74,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: './src/css/', to: '/css' }
+        { from: './src/assets', to: './assets' }
       ]
     }),
     new HtmlWebpackPlugin({
