@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const htmlPages = ['calc', 'food', 'hundle', 'library', 'user'];
 let multiplePlugins = htmlPages.map((page) => {
-  if (page === 'food' || page !== 'hundle') {
+  if (page === 'food' || page === 'hundle') {
     return new HtmlWebpackPlugin({
       template: `./src/${page}.html`,
       filename: `${page}.html`,
